@@ -13,7 +13,7 @@ const { Pool } = pg; // Destructure Pool from the imported pg module
 // Creating the link between frontend and the database
 const pool = new Pool({
     // connectionString: `postgresql://${process.env.DB_USER}:${process.env.DB_PASSWORD}@${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_NAME}`
-    connectionString: process.env.DB_URL
+    connectionString: process.env.DB_URL + "?sslmode=require",
 });
 
 // Middleware
