@@ -3,12 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Countries and Capitals</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .country {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 10px 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .capital {
+            font-style: italic;
+            color: #555;
+        }
+    </style>
 </head>
 <body>
-    <% for( let i = 0; i < rows.length; i++ ) { %>
-        <h2><%= rows[i].name %></h2>
-        <p><%= rows[i].capital %></p>
+    <h1>Countries and Their Capitals</h1>
+    <% for (let i = 0; i < rows.length; i++) { %>
+        <div class="country">
+            <h2><%= rows[i].name %></h2>
+            <p class="capital">Capital: <%= rows[i].capital %></p>
+        </div>
     <% } %>
 </body>
 </html>

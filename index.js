@@ -1,6 +1,6 @@
 import express from "express";
 import bodyParser from "body-parser";
-import pg from "pg";
+import { Pool } from "pg";
 import dotenv from "dotenv";
 
 const app = express();
@@ -24,9 +24,10 @@ dotenv.config();
 //   port: process.env.DB_PORT,
 // });
 
-// Creating the link between frontend and the database
-const db = new pg.Client({
+//Creating the link between frontend and the database
+const pool = new Pool({
     connectionString: `postgresql://${process.env.DB_USER}:${process.env.DB_PASSWORD}@${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_NAME}`
+    
   });
 
 db.connect();
