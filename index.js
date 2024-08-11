@@ -1,11 +1,14 @@
 import express from "express";
 import bodyParser from "body-parser";
-import { Pool } from "pg";
+import pg from "pg";
 import dotenv from "dotenv";
 
 const app = express();
 const port = 4000;
 dotenv.config();
+
+const { Pool } = pg; // Destructure Pool from the imported pg module
+
 
 // Creating the link between frontend and the database
 const pool = new Pool({
