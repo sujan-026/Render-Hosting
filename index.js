@@ -9,7 +9,8 @@ dotenv.config();
 
 // Creating the link between frontend and the database
 const pool = new Pool({
-    connectionString: `postgresql://${process.env.DB_USER}:${process.env.DB_PASSWORD}@${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_NAME}`
+    // connectionString: `postgresql://${process.env.DB_USER}:${process.env.DB_PASSWORD}@${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_NAME}`
+    connectionString: process.env.DB_URL
 });
 
 // Middleware
