@@ -7,15 +7,6 @@ const app = express();
 const port = 4000;
 dotenv.config();
 
-//Creating the link btw frontend and the database
-const db = new pg.Client({
-  user: process.env.DB_USER,
-  host: process.env.DB_HOST,
-  database: process.env.DB_NAME,
-  password: process.env.DB_PASSWORD,
-  port: process.env.DB_PORT,
-});
-
 // const db = new pg.Client({
 //     host: "localhost",
 //     user: "postgres",
@@ -23,6 +14,20 @@ const db = new pg.Client({
 //     password: "Sujan@2004",
 //     database: "trial"
 // })
+
+//Creating the link btw frontend and the database
+// const db = new pg.Client({
+//   user: process.env.DB_USER,
+//   host: process.env.DB_HOST,
+//   database: process.env.DB_NAME,
+//   password: process.env.DB_PASSWORD,
+//   port: process.env.DB_PORT,
+// });
+
+// Creating the link between frontend and the database
+const db = new pg.Client({
+    connectionString: `postgresql://${process.env.DB_USER}:${process.env.DB_PASSWORD}@${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_NAME}`
+  });
 
 db.connect();
 
